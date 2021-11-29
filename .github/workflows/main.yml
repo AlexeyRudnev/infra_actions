@@ -42,7 +42,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: taho1003/practik:v1
+          tags: taho1003/praktic:v1
 
 
   deploy:
@@ -52,15 +52,8 @@ jobs:
       - name: remote ssh comands to deploy
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST_IP }}
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.SSH_KEY}}
-          script: |
-            sudo docker pull taho1003/practik
-            sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5000:5000 taho1003/practik
-
-
 
 
 
