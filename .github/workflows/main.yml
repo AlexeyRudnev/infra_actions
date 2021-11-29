@@ -52,3 +52,7 @@ jobs:
         with:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
+          script: |
+            sudo docker pull taho1003/praktic
+            sudo docker stop $(sudo docker ps -a -q)
+            sudo docker run --rm -d -p 5000:5000 taho1003/praktic
