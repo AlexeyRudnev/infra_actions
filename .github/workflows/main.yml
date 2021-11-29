@@ -36,8 +36,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASS }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.SSH_KEY }}
       - name: Push io DockerHub
         uses: docker/build-push-action@v2
         with:
@@ -52,7 +52,7 @@ jobs:
       - name: remote ssh comands to deploy
         uses: appleboy/ssh-action@master
         with:
-          username: ${{ secrets.HOST_USER }}
+          username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY}}
 
 
