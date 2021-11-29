@@ -51,4 +51,4 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_KEY}}
+          key: ${{ secrets.SSH_KEY }}
